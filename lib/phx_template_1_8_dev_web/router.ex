@@ -20,6 +20,10 @@ defmodule PhxTemplate18DevWeb.Router do
   scope "/", PhxTemplate18DevWeb do
     pipe_through :browser
 
+    live "/products", ProductLive.Index, :index
+    live "/products/new", ProductLive.Form, :new
+    live "/products/:id", ProductLive.Show, :show
+    live "/products/:id/edit", ProductLive.Form, :edit
     get "/", PageController, :home
   end
 

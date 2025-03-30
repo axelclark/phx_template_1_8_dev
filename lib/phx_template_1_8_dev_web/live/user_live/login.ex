@@ -122,6 +122,7 @@ defmodule PhxTemplate18DevWeb.UserLive.Login do
   end
 
   defp local_mail_adapter? do
-    Application.get_env(:phx_template_1_8_dev, PhxTemplate18Dev.Mailer)[:adapter] == Swoosh.Adapters.Local
+    Application.get_env(:phx_template_1_8_dev, PhxTemplate18Dev.Mailer)[:adapter] ==
+      Swoosh.Adapters.Local
   end
 end

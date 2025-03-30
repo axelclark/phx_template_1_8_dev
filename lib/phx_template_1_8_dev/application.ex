@@ -10,7 +10,8 @@ defmodule PhxTemplate18Dev.Application do
     children = [
       PhxTemplate18DevWeb.Telemetry,
       PhxTemplate18Dev.Repo,
-      {DNSCluster, query: Application.get_env(:phx_template_1_8_dev, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:phx_template_1_8_dev, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: PhxTemplate18Dev.PubSub},
       # Start a worker by calling: PhxTemplate18Dev.Worker.start_link(arg)
       # {PhxTemplate18Dev.Worker, arg},
