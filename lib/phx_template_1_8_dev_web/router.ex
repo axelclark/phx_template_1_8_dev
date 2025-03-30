@@ -20,10 +20,6 @@ defmodule PhxTemplate18DevWeb.Router do
   scope "/", PhxTemplate18DevWeb do
     pipe_through :browser
 
-    live "/products", ProductLive.Index, :index
-    live "/products/new", ProductLive.Form, :new
-    live "/products/:id", ProductLive.Show, :show
-    live "/products/:id/edit", ProductLive.Form, :edit
     get "/", PageController, :home
   end
 
@@ -56,6 +52,11 @@ defmodule PhxTemplate18DevWeb.Router do
 
     live_session :require_authenticated_user,
       on_mount: [{PhxTemplate18DevWeb.UserAuth, :require_authenticated}] do
+      live "/products", ProductLive.Index, :index
+      live "/products/new", ProductLive.Form, :new
+      live "/products/:id", ProductLive.Show, :show
+      live "/products/:id/edit", ProductLive.Form, :edit
+
       live "/users/settings", UserLive.Settings, :edit
       live "/users/settings/confirm-email/:token", UserLive.Settings, :confirm_email
     end
