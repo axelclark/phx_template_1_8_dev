@@ -7,6 +7,19 @@
 # General application configuration
 import Config
 
+config :phx_template_1_8_dev, :scopes,
+  user: [
+    default: true,
+    module: PhxTemplate18Dev.Accounts.Scope,
+    assign_key: :current_scope,
+    access_path: [:user, :id],
+    schema_key: :user_id,
+    schema_type: :id,
+    schema_table: :users,
+    test_data_fixture: PhxTemplate18Dev.AccountsFixtures,
+    test_login_helper: :register_and_log_in_user
+  ]
+
 config :phx_template_1_8_dev,
   ecto_repos: [PhxTemplate18Dev.Repo],
   generators: [timestamp_type: :utc_datetime]
